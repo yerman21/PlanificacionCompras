@@ -7,7 +7,8 @@ __pycache__
 # instance Directory
 [Ii]nstance
 [Ii]nstance/
-[Ii]nstance/config.py
+[Ii]nstance/configLocal.py
 instance
 instance/
 instance/config.py
+configLocal.py
