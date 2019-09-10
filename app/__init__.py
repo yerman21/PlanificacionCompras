@@ -9,9 +9,15 @@ api = Api()
 csrf = CsrfProtect()
 
 def create_app(settings_env="config.DevelopmentConfig"):
-	app = Flask(__name__, template_folder='templates')
+	import os
+	TOP_LEVEL_DIR = os.path.abspath(os.curdir)
+	PATH_INSTANCE = os.path.join(TOP_LEVEL_DIR, "instance")
+	app = Flask(__name__, template_folder='templates', instance_path=PATH_INSTANCE, instance_relative_config=True)
+	# print("imprimirendo -> {}".format(os.path.abspath(os.curdir)))
 	# Cargamos la configuracion DevelopmentConfig por defecto
 	app.config.from_object(settings_env)
+	# Cargar la configuracion del folder instance
+	app.config.from_pyfile("config.py", silent=True)
 	# Iniciamos el token de nuestra configuracion cargado en app
 	# para evitar el CSRF
 	csrf.init_app(app)
@@ -29,6 +35,6 @@ def create_app(settings_env="config.DevelopmentConfig"):
 
 	return app
 
-def setup_database(app):
+def init_database(app):
     with app.app_context(): # Para que es esta cosa?????????
         db.create_all()
