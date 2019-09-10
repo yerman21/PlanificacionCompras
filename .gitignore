@@ -5,5 +5,4 @@ __pycache__
 [Ss]cripts
 [Tt]cl
 # instance Directory
-[Ii]nstance/
-[Ii]nstance/configLocal.py
+[Ii]nstance
