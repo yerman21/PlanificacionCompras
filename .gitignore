@@ -1,13 +1,8 @@
 # Virtualenv
-__pycache__
-[Ii]nclude
-[Ll]ib
-[Ss]cripts
-[Ii]nstance
-[Tt]cl
-
-
+__pycache__/
+[Ii]nclude/
+[Ll]ib/
+[Ss]cripts/
+[Tt]cl/
 # instance Directory
-
 [Ii]nstance/
-instance/
