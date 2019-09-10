@@ -16,4 +16,5 @@ Definir la variable de entorno APP_SETTING_ENV. O definirlo al final del archivo
 La carpeta instance se usara para cargar las configuraciones al desarrollar en un entorno virtual. Esta carpeta no sera versionada, por lo que no hay miedo de hacer cambios en ella que afecten a los demas
 
 Solo basta con ir a instance/config.py y modificar la url de conexion
+
 `SQLALCHEMY_DATABASE_URI = "mysql+pymysql://dbUser:dbPass@localhost/db_name"`
