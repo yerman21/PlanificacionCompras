@@ -17,7 +17,7 @@ def create_app(settings_env="config.DevelopmentConfig"):
 	# Cargamos la configuracion DevelopmentConfig por defecto
 	app.config.from_object(settings_env)
 	# Cargar la configuracion del folder instance
-	app.config.from_pyfile("configLocal.py", silent=True)
+	app.config.from_pyfile("config.py", silent=True)
 	# Iniciamos el token de nuestra configuracion cargado en app
 	# para evitar el CSRF
 	csrf.init_app(app)
