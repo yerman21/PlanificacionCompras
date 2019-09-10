@@ -25,6 +25,10 @@ def create_app(settings_env="config.DevelopmentConfig"):
 	from .lista_compra import lista_compra_bp
 	app.register_blueprint(lista_compra_bp)
 	from .plan import plan_bp
-	app.register_blueprint(plan_bp)
+	app.register_blueprint(plan_bp)	
 
 	return app
+
+def setup_database(app):
+    with app.app_context(): # Para que es esta cosa?????????
+        db.create_all()

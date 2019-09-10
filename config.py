@@ -5,6 +5,7 @@ class Config(object):
 	SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class DevelopmentConfig(Config):
+	ENV = "Development"
 	DEBUG = True
 	SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:@localhost/planificacionCompras"
 
