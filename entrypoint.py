@@ -5,4 +5,4 @@ setting_env = os.getenv("APP_SETTING_ENV")
 # Este módulo es el encargado de crear la aplicación Flask
 app = create_app(setting_env)
 init_database(app)
-app.run()
+app.run() # port=5000, host="localhost"
