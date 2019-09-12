@@ -5,7 +5,7 @@ import os
 class Config(object):
 	ENV = "Development"
 	SECRET_KEY = "my_secret_is_you"
-	SQLALCHEMY_TRACK_MODIFICATIONS = False
+	#SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class DevelopmentConfig(Config):
 	ENV = "Development"

@@ -6,12 +6,14 @@ class Categoria(db.Model):
 	id_categoria = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(80), nullable=False)
 	state = db.Column(db.Integer, nullable=False)
+	planDetalles = db.relationship("PlanDetalle")
 
 class Dia(db.Model):
 	__tablename__ = "dia"
 	id_dia = db.Column(db.Integer, primary_key=True)
 	order = db.Column(db.Integer, nullable=False)
 	name = db.Column(db.String(10), nullable=False)
+	planDetalles = db.relationship("PlanDetalle")
 
 class Plan(db.Model):
 	__tablename__ = "plan"
@@ -34,7 +36,7 @@ class Plan(db.Model):
 
 	def save(self):
 		if not self.id_plan:
-			db.session.add(plan)
+			db.session.add(self)
 		db.session.commit()
 
 class PlanDetalle(db.Model):
@@ -42,11 +44,20 @@ class PlanDetalle(db.Model):
 	id_plan_detalle = db.Column(db.Integer, primary_key=True)
 	# Se referencia a la tabla y al atributo por el qeu se relacionara
 	id_plan = db.Column(db.Integer, db.ForeignKey("plan.id_plan"))
-	id_menu = db.Column(db.Integer)
+	id_menu = db.Column(db.Integer, nullable=False)
 	id_categoria = db.Column(db.Integer, db.ForeignKey("categoria.id_categoria"))
 	id_dia = db.Column(db.Integer, db.ForeignKey("dia.id_dia"))
 	state = db.Column(db.Integer)
 	planProductos = db.relationship("PlanProducto")
+
+	def __init__(self, id_menu, state):
+		self.id_menu = id_menu
+		self.state = state
+
+	def save(self):
+		if not self.id_plan_detalle:
+			db.session.add(self)
+		db.session.commit()
 
 class PlanProducto(db.Model):
 	__tablename__ = "plan_producto"
